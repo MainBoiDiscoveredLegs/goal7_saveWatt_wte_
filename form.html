@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: "Lato", sans-serif;
+            color: #333232;
+            background-color: #FCECB3;
+        }
+
+        .sidenav {
+            height: 100%;
+            width: 20%;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #111;
+            overflow-x: hidden;
+            padding-top: 20px;
+        }
+
+        .sidenav a {
+            padding: 10px 8px 6px 50px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+        }
+
+        .sidenav a:hover {
+            color: #f1f1f1;
+        }
+
+        .main {
+            margin-left: 300px;
+            margin-top: 50px;
+            margin-right: 50px;
+            margin-bottom: 50px;
+            font-size: 28px;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #333232;
+            background-color: #FCECB3;
+            align-items: center;
+            align-content: center;
+        }
+
+        .tooltip {
+            position: relative;
+            display: inline-block;
+            border-bottom: 1px dotted black;
+        }
+
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 220px;
+            background-color: #555;
+            color: #fff;
+            text-align: center;
+            border-radius: 6px;
+            padding: 5px 5px;
+            position: absolute;
+            z-index: 1;
+            bottom: 115%;
+            left: 50%;
+            margin-left: -60px;
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .tooltip .tooltiptext::after {
+            content: "";
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            margin-left: -5px;
+            border-width: 5px;
+            border-style: solid;
+            border-color: #555 transparent transparent transparent;
+        }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+
+        @media screen and (max-height: 450px) {
+            .sidenav {
+                padding-top: 15px;
+            }
+
+            .sidenav a {
+                font-size: 18px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidenav">
+        <a href="index.html">UN GOAL 7</a>
+        <div class="tooltip"><a href="EfW.html">WtE / EfW</a>
+            <span class="tooltiptext">Waste to Energy / Energy from Waste</span>
+        </div>
+        <a href="SaveWatt.html">Save Watt</a>
+        <a href="form.html">Form</a>
+
+    </div>
+
+    <div class="main">
+        <iframe
+            src="https://docs.google.com/forms/d/e/1FAIpQLScGAzL3kLpzcbv-9ju5iYrDWwBsSPvr0XHnhZgg0CI80x6Zyw/viewform?embedded=true"
+            width="640" height="2873" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+
+    </div>
+
+
+</body>
+
+</html>

@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <style>
+    body {
+      font-family: "Lato", sans-serif;
+      color: #333232;
+    }
+
+    a:link {
+      color: black;
+    }
+
+    a:visited {
+      color: black;
+    }
+
+    ::-webkit-scrollbar {
+      display: none;
+    }
+
+    .sidenav {
+      height: 100%;
+      width: 20%;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: 0;
+      background-color: #111;
+      overflow-x: hidden;
+      padding-top: 20px;
+    }
+
+    .sidenav a {
+      padding: 10px 8px 6px 50px;
+      text-decoration: none;
+      font-size: 25px;
+      color: #818181;
+      display: block;
+    }
+
+    .sidenav a:hover {
+      color: #f1f1f1;
+    }
+
+    .main {
+      margin-left: 255px;
+      font-size: 28px;
+      font-family: Arial, Helvetica, sans-serif;
+      color: #333232;
+      background-color: white;
+    }
+
+    .mainmain {
+      margin-left: 45px;
+      margin-right: 45px;
+      font-size: 20px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+      color: #333232;
+      background-color: white;
+    }
+
+    .main>p {
+      font-size: 20px;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .bg-img {
+      background-image: url("leaves.jpg");
+      min-height: 600px;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      position: relative;
+    }
+
+    .container {
+      background-color: white;
+      color: black;
+      font-size: 5vw;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+      margin: 0 auto;
+      padding: 10px;
+      width: 80%;
+      text-align: center;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      mix-blend-mode: screen;
+    }
+
+    .timeline {
+      position: relative;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .timeline::after {
+      content: '';
+      position: absolute;
+      width: 6px;
+      background-color: #111;
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -3px;
+    }
+
+    .container1 {
+      padding: 10px 40px;
+      position: relative;
+      background-color: inherit;
+      width: 50%;
+    }
+
+    .container1::after {
+      content: '';
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      right: -17px;
+      background-color: white;
+      border: 4px solid #80b380;
+      top: 15px;
+      border-radius: 50%;
+      z-index: 1;
+    }
+
+    .left {
+      left: 0;
+    }
+
+    .right {
+      left: 50%;
+    }
+
+    .left::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      right: 30px;
+      border: medium solid white;
+      border-width: 10px 0 10px 10px;
+      border-color: transparent transparent transparent white;
+    }
+
+    .right::before {
+      content: " ";
+      height: 0;
+      position: absolute;
+      top: 22px;
+      width: 0;
+      z-index: 1;
+      left: 30px;
+      border: medium solid white;
+      border-width: 10px 10px 10px 0;
+      border-color: transparent white transparent transparent;
+    }
+
+    .right::after {
+      left: -16px;
+    }
+
+    .content {
+      padding: 20px 30px;
+      background-color: rgba(17, 17, 17, 0.829);
+      position: relative;
+      border-radius: 6px;
+    }
+
+    .content>h2> {
+      color: #80b380;
+    }
+
+    .content>p> {
+      color: white;
+    }
+
+    .collapsible {
+      background-color: #7CAD7C;
+      color: white;
+      font-weight: bold;
+      font-family: Arial, Helvetica, sans-serif;
+      cursor: pointer;
+      padding: 18px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 15px;
+    }
+
+    .tooltip {
+      position: relative;
+      display: inline-block;
+      border-bottom: 1px dotted black;
+    }
+
+    .tooltip .tooltiptext {
+      visibility: hidden;
+      width: 220px;
+      background-color: #555;
+      color: #fff;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 5px;
+      position: absolute;
+      z-index: 1;
+      bottom: 115%;
+      left: 50%;
+      margin-left: -60px;
+      opacity: 0;
+      transition: opacity 0.3s;
+    }
+
+    .tooltip .tooltiptext::after {
+      content: "";
+      position: absolute;
+      top: 100%;
+      left: 50%;
+      margin-left: -5px;
+      border-width: 5px;
+      border-style: solid;
+      border-color: #555 transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+      visibility: visible;
+      opacity: 1;
+    }
+
+    .collapsible:hover {
+      background-color: #a1dba1
+    }
+
+    .insideCol {
+      padding: 0 18px;
+      padding-bottom: 10px;
+      font-size: 15px;
+      background-color: white;
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.2s ease-out;
+    }
+
+    @media screen and (max-height: 450px) {
+      .sidenav {
+        padding-top: 15px;
+      }
+
+      .sidenav a {
+        font-size: 18px;
+      }
+
+      .timeline::after {
+        left: 31px;
+      }
+
+      /* Full-width containers */
+      .container1 {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+
+      /* Make sure that all arrows are pointing leftwards */
+      .container1::before {
+        left: 60px;
+        border: medium solid white;
+        border-width: 10px 10px 10px 0;
+        border-color: transparent white transparent transparent;
+      }
+
+      /* Make sure all circles are at the same spot */
+      .left::after,
+      .right::after {
+        left: 15px;
+      }
+
+      /* Make all right containers behave like the left ones */
+      .right {
+        left: 0%;
+      }
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <div class="sidenav">
+    <a href="index.html">UN GOAL 7</a>
+    <div class="tooltip"><a href="EfW.html">WtE / EfW</a>
+      <span class="tooltiptext">Waste to Energy / Energy from Waste</span>
+    </div>
+    <a href="SaveWatt.html">Save Watt</a>
+    <a href="form.html">Form</a>
+
+  </div>
+
+  <div class="main">
+    <div class="bg-img">
+      <div class="container">
+        WASTE TO ENERGY / ENERGY FROM WASTE
+      </div>
+    </div>
+    <div class="mainmain">
+      <br>
+      <p>The Basic idea is to convert waste into energy through many different methods. The inspiration for this comes
+        from the sheer number of landfills in India, as mentioned before. The wasted potential that lies within that
+        mound of trash varies from landfill to landfill, but urban India is estimated to produce around 62 million
+        tonnes of waste, which could potentially produce around 33 million MWh of energy.</p>
+      <p><b>For reference, a MWh of electrical energy equates to the amount of energy needed to power two average
+          refrigerators for a whole year.</b></p>
+      <p>The process of generating electricity in a mass-burn waste-to-energy plant has seven stages :</p>
+    </div>
+    <div class="timeline">
+      <div class="container1 left">
+        <div class="content">
+          <h2>
+            <font color="#80b380">STEP 1</font>
+          </h2>
+          <p>
+            <font color="#dee0e0">Waste is dumped from garbage trucks into large pits.</font>
+          </p>
+        </div>
+      </div>
+      <div class="container1 right">
+        <div class="content">
+          <h2>
+            <font color="#80b380">STEP 2</font>
+          </h2>
+          <p>
+            <font color="#dee0e0">Waste is collected by a claw and is put in a combustion machine.</font>
+          </p>
+        </div>
+      </div>
+      <div class="container1 left">
+        <div class="content">
+          <h2>
+            <font color="#80b380">STEP 3</font>
+          </h2>
+          <p>
+            <font color="#dee0e0">Waste is burned and releases heat.</font>
+          </p>
+        </div>
+      </div>
+      <div class="container1 right">
+        <div class="content">
+          <h2>
+            <font color="#80b380">STEP 4</font>
+          </h2>
+          <p>
+            <font color="#dee0e0">Heat turns into water in a boiler.</font>
+          </p>
+        </div>
+      </div>
+      <div class="container1 left">
+        <div class="content">
+          <h2>
+            <font color="#80b380">STEP 5</font>
+          </h2>
+          <p>
+            <font color="#dee0e0">High pressure steam turns the turbine spinner and produces energy!</font>
+          </p>
+        </div>
+      </div>
+      <div class="container1 right">
+        <div class="content">
+          <h2>
+            <font color="#80b380">STEP 6</font>
+          </h2>
+          <p>
+            <font color="#dee0e0">Air pollution control system removes pollution from combustion gas before it’s
+              release.</font>
+          </p>
+        </div>
+      </div>
+      <div class="container1 left">
+        <div class="content">
+          <h2>
+            <font color="#80b380">EXTRA STEP</font>
+          </h2>
+          <p>
+            <font color="#dee0e0">The harmful substances in the combustion gas can be diluted with artificial oxygen, to
+              then be released back into the atmosphere.</font>
+          </p>
+          <button type="button" class="collapsible">ARTIFICIAL OXYGEN</button>
+          <div class="insideCol">
+            <p>Most commercial oxygen is produced using a variation of the cryogenic distillation process originally
+              developed in 1895. This process produces oxygen that is 99+% pure. More recently, the more
+              energy-efficient vacuum swing adsorption process has been used for a limited number of applications that
+              do not require oxygen with more than 90-93% purity.</p>
+            <a href="http://www.madehow.com/Volume-4/Oxygen.html#ixzz79A22KuQS">Click here to read more.</a>
+          </div>
+        </div>
+      </div>
+      <div class="container1 right">
+        <div class="content">
+          <h2>
+            <font color="#80b380">STEP 7</font>
+          </h2>
+          <p>
+            <font color="#dee0e0">Ash is collected from boiler and air pollution control system.</font>
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    var coll = document.getElementsByClassName("collapsible");
+    var i;
+
+    for (i = 0; i < coll.length; i++) {
+      coll[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var content = this.nextElementSibling;
+        if (content.style.maxHeight) {
+          content.style.maxHeight = null;
+        } else {
+          content.style.maxHeight = content.scrollHeight + "px";
+        }
+      });
+    }
+  </script>
+</body>
+
+</html>
