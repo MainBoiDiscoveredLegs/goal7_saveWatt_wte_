@@ -190,7 +190,7 @@
       background-color: #7CAD7C;
       color: white;
       font-weight: bold;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
       cursor: pointer;
       padding: 18px;
       width: 100%;
@@ -198,6 +198,7 @@
       text-align: left;
       outline: none;
       font-size: 15px;
+      border-radius: 5px;
     }
 
     .tooltip {
@@ -240,17 +241,19 @@
     }
 
     .collapsible:hover {
-      background-color: #a1dba1
+      background-color: #88c788
     }
 
     .insideCol {
       padding: 0 18px;
-      padding-bottom: 10px;
+      padding-bottom: 0;
       font-size: 15px;
       background-color: white;
+      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
       max-height: 0;
       overflow: hidden;
       transition: max-height 0.2s ease-out;
+      border-radius: 5px;
     }
 
     @media screen and (max-height: 450px) {
@@ -266,14 +269,12 @@
         left: 31px;
       }
 
-      /* Full-width containers */
       .container1 {
         width: 100%;
         padding-left: 70px;
         padding-right: 25px;
       }
 
-      /* Make sure that all arrows are pointing leftwards */
       .container1::before {
         left: 60px;
         border: medium solid white;
@@ -281,13 +282,11 @@
         border-color: transparent white transparent transparent;
       }
 
-      /* Make sure all circles are at the same spot */
       .left::after,
       .right::after {
         left: 15px;
       }
 
-      /* Make all right containers behave like the left ones */
       .right {
         left: 0%;
       }
@@ -402,6 +401,7 @@
               energy-efficient vacuum swing adsorption process has been used for a limited number of applications that
               do not require oxygen with more than 90-93% purity.</p>
             <a href="http://www.madehow.com/Volume-4/Oxygen.html#ixzz79A22KuQS">Click here to read more.</a>
+            <br> <br>
           </div>
         </div>
       </div>
