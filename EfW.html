@@ -16,12 +16,9 @@
       color: black;
     }
 
-    ::-webkit-scrollbar {
-      display: none;
-    }
-
     .sidenav {
-      height: 100%;
+      font-family:Verdana, Geneva, Tahoma, sans-serif;
+     height: 100%;
       width: 20%;
       position: fixed;
       z-index: 1;
@@ -30,10 +27,12 @@
       background-color: #111;
       overflow-x: hidden;
       padding-top: 2vw;
+      text-align: 'left';
+
     }
 
     .sidenav a {
-      padding: 1vw 0.5vw 1vw 2vw;
+      padding: 1vw 3vw 1vw 1vw;
       text-decoration: none;
       font-size: 2vw;
       color: #818181;
@@ -204,13 +203,13 @@
 
     .tooltip {
       position: relative;
-      display: inline-block;
-      border-bottom: 1px dotted black;
+      display: inline;
+      opacity: 0.8;
     }
 
     .tooltip .tooltiptext {
       visibility: hidden;
-      width: 220px;
+      width: 200px;
       background-color: #555;
       color: #fff;
       text-align: center;
@@ -220,20 +219,8 @@
       z-index: 1;
       bottom: 115%;
       left: 50%;
-      margin-left: -60px;
-      opacity: 0;
+      margin-left: 1vw;
       transition: opacity 0.3s;
-    }
-
-    .tooltip .tooltiptext::after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      margin-left: -5px;
-      border-width: 5px;
-      border-style: solid;
-      border-color: #555 transparent transparent transparent;
     }
 
     .tooltip:hover .tooltiptext {
@@ -299,12 +286,12 @@
 <body>
 
   <div class="sidenav">
-    <a href="index.html">UN GOAL 7</a>
-    <div class="tooltip"><a href="EfW.html">WtE / EfW</a>
+    <a href="index.html" align="right">UN GOAL 7</a>
+    <div class="tooltip"><a href="EfW.html" style="color:white;" align="right">WTE / EFW</a>
       <span class="tooltiptext">Waste to Energy / Energy from Waste</span>
     </div>
-    <a href="SaveWatt.html">Save Watt</a>
-    <a href="form.html">Form</a>
+    <a href="SaveWatt.html" align="right">SAVE WATT</a>
+    <a href="form.html" align="right">FORM</a>
 
   </div>
 
