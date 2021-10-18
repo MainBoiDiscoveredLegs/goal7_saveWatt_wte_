@@ -9,7 +9,7 @@
     }
 
     body {
-      font-family: "Lato", sans-serif;
+      font-family: Verdana, Geneva, Tahoma, sans-serif;
       margin: 0;
       background-color: white;
     }
@@ -97,10 +97,12 @@
       background-color: #111;
       overflow-x: hidden;
       padding-top: 2vw;
+      text-align: 'left';
+
     }
 
     .sidenav a {
-      padding: 1vw 0.5vw 1vw 2vw;
+      padding: 1vw 3vw 1vw 1vw;
       text-decoration: none;
       font-size: 2vw;
       color: #818181;
@@ -123,16 +125,10 @@
       align-items: 'left';
     }
 
-
-    .main>p {
-      font-size: 2vw;
-      font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    }
-
     .tooltip {
       position: relative;
-      display: inline-block;
-      border-bottom: 1px dotted black;
+      display: inline;
+      opacity: 0.8;
     }
 
     .tooltip .tooltiptext {
@@ -147,20 +143,8 @@
       z-index: 1;
       bottom: 115%;
       left: 50%;
-      margin-left: -60px;
-      opacity: 0;
+      margin-left: 1vw;
       transition: opacity 0.3s;
-    }
-
-    .tooltip .tooltiptext::after {
-      content: "";
-      position: absolute;
-      top: 100%;
-      left: 50%;
-      margin-left: -5px;
-      border-width: 5px;
-      border-style: solid;
-      border-color: #555 transparent transparent transparent;
     }
 
     .tooltip:hover .tooltiptext {
@@ -204,12 +188,12 @@
 <body>
 
   <div class="sidenav">
-    <a href="index.html">UN GOAL 7</a>
-    <div class="tooltip"><a href="EfW.html">WtE / EfW</a>
-      <span class="tooltiptext">Waste to Energy / Energy from Waste</span>
+    <a href="index.html" align="right">UN GOAL 7</a>
+    <div class="tooltip"><a href="EfW.html" align="right">WTE / EFW</a>
+      <span class="tooltiptext" align="right">Waste to Energy / Energy from Waste</span>
     </div>
-    <a href="SaveWatt.html">Save Watt</a>
-    <a href="form.html">Form</a>
+    <a href="SaveWatt.html" style="color:white;" align="right">SAVE WATT</a>
+    <a href="form.html" align="right">FORM</a>
 
   </div>
 
@@ -254,7 +238,9 @@
           </tr>
         </table>
 
-        <center><img src="thankYouGif.gif" width=90% ></center>
+        <br><br>
+
+        <center><img src="thankYouGif.gif" width=90%></center>
 
       </div>
     </div>
