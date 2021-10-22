@@ -53,37 +53,12 @@
     }
 
 
-    @-webkit-keyframes fade {
-      from {
-        opacity: .4
-      }
-
-      to {
-        opacity: 0.5
-      }
-    }
-
-    @keyframes fade {
-      from {
-        opacity: .4
-      }
-
-      to {
-        opacity: 0.5
-      }
-    }
-
-
     a:link {
       color: rgb(39, 39, 39);
     }
 
     a:visited {
       color: rgb(39, 39, 39);
-    }
-
-    ::-webkit-scrollbar {
-      display: none;
     }
 
     .sidenav {
@@ -115,7 +90,7 @@
     .main {
       margin-left: 23%;
       margin-top: 3vw;
-      font-size: 2.2vw;
+      font-size: 2vw;
       padding: 0px 1vw;
       font-family: Arial, Helvetica, sans-serif;
       color: #333232;
@@ -151,6 +126,14 @@
       opacity: 1;
     }
 
+    .container1 {
+      position: relative;
+    }
+
+    .mySlides1 {
+      display: none;
+    }
+
     .grid {
       display: flex;
       flex-wrap: nowrap;
@@ -172,14 +155,29 @@
       padding: 1vw;
     }
 
-    @media screen and (max-height: 450px) {
-      .sidenav {
-        padding-top: 15px;
-      }
+    .back,
+    .front {
+      cursor: pointer;
+      position: absolute;
+      top: 50%;
+      width: auto;
+      padding: 1.5vw;
+      margin-top: -1.1vw;
+      color: rgb(197, 197, 197);
+      font-weight: bold;
+      font-size: 2vw;
+      transition: 0.6s ease;
+      border-radius: 3px;
+      user-select: none;
+    }
 
-      .sidenav a {
-        font-size: 18px;
-      }
+    .front {
+      right: 0;
+    }
+
+    .back:hover,
+    .front:hover {
+      background-color: rgba(0, 0, 0, 0.5);
     }
   </style>
 </head>
@@ -197,6 +195,11 @@
   </div>
 
   <div class="main">
+
+    <button onClick="mute()"
+      style="position:-webkit-sticky; background-color: white; border:none; width:fit-content; margin-bottom: 5vw; align-self:right;"><img
+        id="muteButton" src="notmuted.png" style="width:5vw;"></button>
+
     <div class="grid">
       <div>
         <div class="slideshow-container">
@@ -217,13 +220,11 @@
             <img src="4.jpg" style="width:100%">
           </div>
 
-          <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-          <a class="next" onclick="plusSlides(1)">&#10095;</a>
+          <a class="prev" onclick="plusSlides1(-1)">&#10094;</a>
+          <a class="next" onclick="plusSlides1(1)">&#10095;</a>
 
         </div>
-      </div>
 
-      <div>
         <table>
           <tr>
             <td>Link to Document</td>
@@ -236,22 +237,117 @@
             <td><a href="#">Link.apk</a></td>
           </tr>
         </table>
+      </div>
+
+      <div>
+
+        <div class="container1">
+          <div class="mySlides1">
+            <img src="s1.png" style="width:100%">
+          </div>
+
+          <div class="mySlides1">
+            <img src="s2.png" style="width:100%">
+          </div>
+
+          <div class="mySlides1">
+            <img src="s3.png" style="width:100%">
+          </div>
+
+          <div class="mySlides1">
+            <img src="s4.png" style="width:100%">
+          </div>
+
+          <div class="mySlides1">
+            <img src="s5.png" style="width:100%">
+          </div>
+
+          <div class="mySlides1">
+            <img src="s6.png" style="width:100%">
+          </div>
+
+          <div class="mySlides1">
+            <img src="s7.png" style="width:100%">
+          </div>
+
+          <div class="mySlides1">
+            <img src="s8.png" style="width:100%">
+          </div>
+
+          <div class="mySlides1">
+            <img src="s9.png" style="width:100%">
+          </div>
+
+          <div class="mySlides1">
+            <img src="s10.png" style="width:100%">
+          </div>
+
+          <div class="mySlides1">
+            <img src="s11.png" style="width:100%">
+          </div>
+
+          <div class="mySlides1">
+            <img src="a12.png" style="width:100%">
+          </div>
+
+          <div class="mySlides1">
+            <img src="s6.png" style="width:100%">
+          </div>
+
+          <div class="mySlides1">
+            <img src="13.png" style="width:100%">
+          </div>
+
+          <div class="mySlides1">
+            <img src="14.png" style="width:100%">
+          </div>
+
+          <div class="mySlides1">
+            <img src="s15.png" style="width:100%">
+          </div>
+
+          <a class="back" onclick="plusSlides(-1)">❮</a>
+          <a class="front" onclick="plusSlides(1)">❯</a>
+        </div>
+
+        <table>
+          <tr>
+            <td>Link to Presentation</td>
+            <td> : </td>
+            <td><a href="STEAM DAY _ 9B24.pdf">Link.pdf</a></td>
+          </tr>
+        </table>
 
         <br><br>
-        <audio autoplay loop preload="auto">
+        <audio autoplay loop preload="auto" id="song">
           <source src="soWhat-themeSOng.mp3" type="audio/mp3">
         </audio>
+
+
       </div>
     </div>
-
 
   </div>
 
   <script>
+
+    var song = document.getElementById("song");
+    var muteimg = document.getElementById("muteButton");
+
+    function mute() {
+      if (song.volume == 0) {
+        song.volume = 1;
+        muteButton.src = "notmuted.png";
+      } else if (song.volume = 1) {
+        song.volume = 0;
+        muteButton.src = "muted.png";
+      }
+    }
+
     var slideIndex = 1;
     showSlides(slideIndex);
 
-    function plusSlides(n) {
+    function plusSlides1(n) {
       showSlides(slideIndex += n);
     }
 
@@ -269,7 +365,28 @@
         slides[i].style.display = "none";
       }
       slides[slideIndex - 1].style.display = "block";
-      dots[slideIndex - 1].className += " active";
+    }
+
+    var slideIndex1 = 1;
+    showSlides1(slideIndex1);
+
+    function plusSlides(n) {
+      showSlides1(slideIndex1 += n);
+    }
+
+    function currentSlide1(n) {
+      showSlides1(slideIndex1 = n);
+    }
+
+    function showSlides1(n) {
+      var i;
+      var slides = document.getElementsByClassName("mySlides1");
+      if (n > slides.length) { slideIndex1 = 1 }
+      if (n < 1) { slideIndex1 = slides.length }
+      for (i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+      }
+      slides[slideIndex1 - 1].style.display = "block";
     }
   </script>
 </body>
